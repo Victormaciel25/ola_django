@@ -18,12 +18,20 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-def my_view(request):
-    print('Posso fazer outras coisas.')
-    return HttpResponse('Uma mensagem para alguém especial')
+# HTTP Request <-> HTTP Response
+# MVT (MVC)
+
+def home(request):
+    print('home')
+    return HttpResponse('home')
+
+def blog(request):
+    print('blog')
+    return HttpResponse('blog')
     
 
 urlpatterns = [
+    path('', home),
+    path('blog/', blog),
     path('admin/', admin.site.urls),
-    path('blog/', my_view),
 ]
